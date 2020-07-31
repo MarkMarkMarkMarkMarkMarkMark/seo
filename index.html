@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0039)https://mark.apiplus.tw/mark/?page=seo# -->
 <html lang="zh-Hant">
 
 <head>
@@ -41,6 +40,60 @@
             margin: auto;
             height: 100vh;
         }
+
+        .overlay {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-x: hidden;
+            transition: 0.5s;
+            z-index: 5;
+        }
+
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .overlay a:hover,
+        .overlay a:focus {
+            color: #f1f1f1;
+        }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .overlay a {
+                font-size: 20px
+            }
+
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
     </style>
 </head>
 
@@ -73,6 +126,19 @@
         </div>
     </nav>
 
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="#">關於我們</a>
+            <a href="#">最新產品</a>
+            <a href="#">服務項目</a>
+            <a href="#">聯絡我們</a>
+        </div>
+    </div>
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -99,7 +165,7 @@
         <p>校園系統 &amp; 打卡系統</p>
     </div>
     <div class="container-fluid p-0">
-        <div id="demo" class="carousel slide">
+        <div id="demo" class="carousel slide" data-ride="carousel">
             <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
                 <li data-target="#demo" data-slide-to="1" class=""></li>
@@ -180,58 +246,31 @@
     <script async="" src="./index_files/popper.min.js"></script>
     <script async="" src="./index_files/bootstrap.min.js"></script>
     <script>
-        let promArr = [];
-        const loadJs = [
-            // "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js",
-            // "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js",
-            "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js",
-        ];
-        // for (let i = 0; i < loadJs.length - 1; i++) {
-        //     const js = loadJs[i];
-        //     const prom = new Promise((resolve, reject) => {
-        //         const script = document.createElement('script');
-        //         script.onload = function () {
-        //             resolve();
-        //         };
-        //         script.src = js;
-        //         document.head.appendChild(script); //or something of the likes
-        //     });
-        //     promArr.push(prom);
-        // }
-        // const promLink = new Promise((resolve, reject) => {
-        //     const link = document.createElement('link');
-        //     link.onload = function () {
-        //         resolve();
-        //     };
-        //
-        //     link.rel = 'stylesheet';
-        //     link.href = 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css';
-        //     document.head.appendChild(link); //or something of the likes
-        // });
-        // promArr.push(promLink);
-        //
-        // Promise.all(promArr).then(values => {
-        //     document.getElementsByClassName("loading")[0].hidden = true;
-        // });
         window.onload = function () {
             document.getElementsByClassName("loading")[0].hidden = true;
-            setTimeout(() => {
-                var myCarousel = document.querySelector('#demo')
-                var carousel = new bootstrap.Carousel(myCarousel, {
-                    interval: 2000,
-                    wrap: true
-                });
-                carousel.cycle()
-            }, 5000);
+        }
+
+        /* Open when someone clicks on the span element */
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        /* Close when someone clicks on the "x" symbol inside the overlay */
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
         }
     </script>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88350098-9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
+        gtag('config', 'UA-88350098-9');
+    </script>
 
-    <!--<div id="mashup_editor" style="width: 100%"></div>-->
-    <!--<script>-->
-    <!--    $("#mashup_editor").load("../apiplus/mashup_editor.php");-->
-    <!--</script>-->
 </body>
 
 </html>
