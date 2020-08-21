@@ -287,7 +287,10 @@
                     liff.init({
                         liffId: myLiffId
                     }).then(() => {
-                        // start to use LIFF's api
+                        if (!liff.isLoggedIn()) {
+                            liff.login();
+                            return;
+                        }
                         liff.getProfile().then(profile => {
                             this.profile = profile.displayName;
                         }).catch((err) => {
