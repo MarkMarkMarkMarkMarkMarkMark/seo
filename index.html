@@ -97,7 +97,7 @@
     </style>
 </head>
 
-<body>
+<body id="app">
 
     <div class="loading-div">
         <div class="loading" hidden="">
@@ -224,6 +224,8 @@
                 校園數據，該設備設立在學校，包含溫度、濕度、空污PM2.5。</p>
         </div>
 
+        <pre>{{profile}}</pre>
+
         <div class="mt-3 bg-dark shadow rounded text-white p-4">
             <h3>聯絡我們</h3>
             <div class="mb-3">
@@ -269,7 +271,37 @@
         gtag('js', new Date());
         gtag('config', 'UA-88350098-11');
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                profile: {},
+            },
+            methods: {
+                initializeLiff(myLiffId) {
+                    liff.init({
+                        liffId: myLiffId
+                    }).then(() => {
+                        // start to use LIFF's api
+                        liff.getProfile().then(profile => {
+                            this.profile = profile.displayName;
+                        }).catch((err) => {
+                            console.log('error', err);
+                        });
+                    }).catch((err) => {
+
+                    });
+                }
+            },
+            mounted: function () {
+                this.initializeLiff('1653696034-wrLERR4G');
+            }
+        })
+    </script>
 
 
 </body>
