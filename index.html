@@ -97,153 +97,154 @@
     </style>
 </head>
 
-<body id="app">
-
-    <div class="loading-div">
-        <div class="loading" hidden="">
-            <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-hourglass-split" fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                    d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0c0 .701.478 1.236 1.011 1.492A3.5 3.5 0 0 1 11.5 13s-.866-1.299-3-1.48V8.35z">
-                </path>
-            </svg>
-        </div>
-    </div>
-
-    <nav class="navbar navbar-white bg-white">
-        <div class="container">
-            <a class="navbar-brand">
-                海略
-            </a>
-            <a type="button" class="btn btn-outline-dark" onclick="openNav()">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor"
+<body>
+    <div id="app">
+        <div class="loading-div">
+            <div class="loading" hidden="">
+                <svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-hourglass-split" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
-                        d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
+                        d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0c0 .701.478 1.236 1.011 1.492A3.5 3.5 0 0 1 11.5 13s-.866-1.299-3-1.48V8.35z">
                     </path>
                 </svg>
-            </a>
-        </div>
-    </nav>
-
-    <!-- The overlay -->
-    <div id="myNav" class="overlay">
-        <!-- Button to close the overlay navigation -->
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <!-- Overlay content -->
-        <div class="overlay-content">
-            <a href="#">關於我們</a>
-            <a href="#">最新產品</a>
-            <a href="#">服務項目</a>
-            <a href="#">聯絡我們</a>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">海略商貿科技</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <button type="button" class="btn btn-primary btn-lg btn-block">關於我們</button>
-                    <button type="button" class="btn btn-primary btn-lg btn-block">聯絡我們</button>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
-                </div>
             </div>
         </div>
-    </div>
 
-    <div class="p-4 bg-light text-center mb-0">
-        <h1>海略商貿科技</h1>
-        <p>校園系統 &amp; 打卡系統</p>
-    </div>
-    <div class="container-fluid p-0">
-        <div id="demo" class="carousel slide" data-ride="carousel">
-            <ul class="carousel-indicators">
-                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <li data-target="#demo" data-slide-to="1" class=""></li>
-                <li data-targetjumbotron="#demo" data-slide-to="2" class=""></li>
-            </ul>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img alt="" src="./index_files/0-700x300.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img alt="" src="./index_files/1-700x300.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img alt="" src="./index_files/2-700x300.jpg">
+        <nav class="navbar navbar-white bg-white">
+            <div class="container">
+                <a class="navbar-brand">
+                    海略
+                </a>
+                <a type="button" class="btn btn-outline-dark" onclick="openNav()">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+
+        <!-- The overlay -->
+        <div id="myNav" class="overlay">
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <!-- Overlay content -->
+            <div class="overlay-content">
+                <a href="#">關於我們</a>
+                <a href="#">最新產品</a>
+                <a href="#">服務項目</a>
+                <a href="#">聯絡我們</a>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">海略商貿科技</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <button type="button" class="btn btn-primary btn-lg btn-block">關於我們</button>
+                        <button type="button" class="btn btn-primary btn-lg btn-block">聯絡我們</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                    </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-                <span class="d-none">下一張</span>
-            </a>
-            <a class="carousel-control-next" href="#demo" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-                <span class="d-none">上一張</span>
-            </a>
+        </div>
+
+        <div class="p-4 bg-light text-center mb-0">
+            <h1>海略商貿科技</h1>
+            <p>校園系統 &amp; 打卡系統</p>
+        </div>
+        <div class="container-fluid p-0">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1" class=""></li>
+                    <li data-targetjumbotron="#demo" data-slide-to="2" class=""></li>
+                </ul>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img alt="" src="./index_files/0-700x300.jpg">
+                    </div>
+                    <div class="carousel-item">
+                        <img alt="" src="./index_files/1-700x300.jpg">
+                    </div>
+                    <div class="carousel-item">
+                        <img alt="" src="./index_files/2-700x300.jpg">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="d-none">下一張</span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="d-none">上一張</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="container mt-3" style="min-height: 580px">
+            <div class="row">
+                <div class="col-6 col-md-4 mt-3">
+                    <img alt="" src="./index_files/3-400x400.jpg" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-4 mt-3">
+                    <img alt="" src="./index_files/9-400x400.jpg" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-4 mt-3">
+                    <img alt="" src="./index_files/5-400x400.jpg" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-4 mt-3">
+                    <img alt="" src="./index_files/7-400x400.jpg" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-4 mt-3">
+                    <img alt="" src="./index_files/8-400x400.jpg" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-4 mt-3">
+                    <img alt="" src="./index_files/4-400x400.jpg" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="mt-3 bg-primary shadow rounded text-white p-4">
+                <h3>關於我們</h3>
+                <p>LINE@校園是整合校園通報、校園資訊、友善交通、環境數據的系統，免下載APP，
+                    打開LINE就可以使用，非常方便，能即時接收到學校的訊息，發生意外緊急狀況時簡單三個步驟，校安群組就會接到通知。
+                    交通資訊有公車、火車，查詢的速度比APP快還沒有廣告。
+                    校園數據，該設備設立在學校，包含溫度、濕度、空污PM2.5。</p>
+            </div>
+
+            <pre>{{profile}}</pre>
+
+            <div class="mt-3 bg-dark shadow rounded text-white p-4">
+                <h3>聯絡我們</h3>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">信箱</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                        placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">訊息</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <a class="btn btn-primary btn-block">送出</a>
+            </div>
+
+            <div class="p-4 bg-light text-center mb-0 mt-4">
+                <p>統一編號：81199918</p>
+            </div>
         </div>
     </div>
-
-    <div class="container mt-3" style="min-height: 580px">
-        <div class="row">
-            <div class="col-6 col-md-4 mt-3">
-                <img alt="" src="./index_files/3-400x400.jpg" class="img-fluid">
-            </div>
-            <div class="col-6 col-md-4 mt-3">
-                <img alt="" src="./index_files/9-400x400.jpg" class="img-fluid">
-            </div>
-            <div class="col-6 col-md-4 mt-3">
-                <img alt="" src="./index_files/5-400x400.jpg" class="img-fluid">
-            </div>
-            <div class="col-6 col-md-4 mt-3">
-                <img alt="" src="./index_files/7-400x400.jpg" class="img-fluid">
-            </div>
-            <div class="col-6 col-md-4 mt-3">
-                <img alt="" src="./index_files/8-400x400.jpg" class="img-fluid">
-            </div>
-            <div class="col-6 col-md-4 mt-3">
-                <img alt="" src="./index_files/4-400x400.jpg" class="img-fluid">
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="mt-3 bg-primary shadow rounded text-white p-4">
-            <h3>關於我們</h3>
-            <p>LINE@校園是整合校園通報、校園資訊、友善交通、環境數據的系統，免下載APP，
-                打開LINE就可以使用，非常方便，能即時接收到學校的訊息，發生意外緊急狀況時簡單三個步驟，校安群組就會接到通知。
-                交通資訊有公車、火車，查詢的速度比APP快還沒有廣告。
-                校園數據，該設備設立在學校，包含溫度、濕度、空污PM2.5。</p>
-        </div>
-
-        <pre>{{profile}}</pre>
-
-        <div class="mt-3 bg-dark shadow rounded text-white p-4">
-            <h3>聯絡我們</h3>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">信箱</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">訊息</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <a class="btn btn-primary btn-block">送出</a>
-        </div>
-
-        <div class="p-4 bg-light text-center mb-0 mt-4">
-            <p>統一編號：81199918</p>
-        </div>
-    </div>
-
     <!-- <link async="" rel="stylesheet" href="./index_files/bootstrap.min.css"> -->
     <script async="" src="./index_files/popper.min.js"></script>
     <script async="" src="./index_files/bootstrap.min.js"></script>
