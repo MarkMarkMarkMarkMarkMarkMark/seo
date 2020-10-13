@@ -225,7 +225,7 @@
             </div>
 
             <div class="mt-3 bg-dark shadow rounded text-white p-4">
-                <h3>聯絡我們</h3>
+                <h3 @click="editMode()">聯絡我們</h3>
                 <div class="mb-3">
                     <label class="form-label">姓名</label>
                     <input type="text" class="form-control" placeholder="Mark" v-model="profile.displayName">
@@ -239,6 +239,21 @@
                     <textarea class="form-control" rows="3"></textarea>
                 </div>
                 <a class="btn btn-primary btn-block">送出</a>
+            </div>
+
+            <div v-if="editM >= 5" class="mt-3 bg-dark shadow rounded text-white p-4">
+                <div class="mb-3">
+                    <label class="form-label">url</label>
+                    <input type="text" class="form-control" placeholder="Mark" v-model="url">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">external:</label>
+                    <select class="form-control" v-model="external">
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                    </select>
+                </div>
+                <a class="btn btn-primary btn-block" @click="goUrl()">Go Url</a>
             </div>
 
             <div class="p-4 bg-light text-center mb-0 mt-4">
@@ -282,6 +297,9 @@
             data: {
                 message: 'Hello Vue!',
                 profile: {},
+                editM: 0,
+                external: true,
+                url: '',
             },
             methods: {
                 initializeLiff(myLiffId) {
@@ -301,12 +319,37 @@
 
                     });
                 },
-                goLiff(){
+                goLiff() {
                     this.initializeLiff('1653696034-wrLERR4G');
+                },
+                goUrl() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const url = urlParams.get('url');
+                    console.log('url', url);
+                    liff.openWindow({
+                        url: this.url,
+                        external: this.external === 'true',
+                    });
+                },
+                editMode() {
+                    this.editM++;
+                    if (this.editM === 5) {
+                        const script = document.createElement('script');
+                        script.onload = () => {
+                            const vConsole = new VConsole();
+                            console.log('vConsoleShow');
+                            console.log('location', location);
+                            console.log('currentSession', this.liffService.currentSession);
+                        };
+                        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/vConsole/3.3.0/vconsole.min.js';
+                        document.getElementsByTagName('head')[0].appendChild(script);
+                    }
                 }
             },
             mounted: function () {
                 // this.initializeLiff('1653696034-wrLERR4G');
+                const urlParams = new URLSearchParams(window.location.search);
+                this.url = urlParams.get('url');
             }
         })
     </script>
